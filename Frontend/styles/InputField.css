@@ -1,0 +1,25 @@
+.inputField {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  color: gray;
+  font-weight: bold;
+}
+.input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 4px 4px;
+  border: gray solid 1px;
+  font-size: 1rem;
+  outline: none;
+
+  height: 35px;
+}
+
+.input:focus {
+  border: #6ea74e solid 1px;
+  box-shadow: 0 0 0 1px #6ea74e;
+  transition: 0.4s;
+}

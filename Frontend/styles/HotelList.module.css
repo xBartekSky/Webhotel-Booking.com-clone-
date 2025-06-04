@@ -1,0 +1,82 @@
+.container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 50px 0;
+}
+.app {
+  margin-top: 50px;
+  width: 80%;
+}
+.hotelsContainer {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+.hotelContent {
+  margin-top: 20px;
+  width: 60%;
+  height: 300px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: flex;
+  box-shadow: 13px -16px 42px -30px rgba(162, 162, 167, 1);
+}
+.hotelImage {
+  width: 40%;
+  height: 100%;
+
+  border-right: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageContainer {
+  width: 95%;
+  height: 95%;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.hotelDesc {
+  margin: 10px;
+}
+.button {
+  background-color: #196f3a;
+  color: white;
+}
+.separator {
+  width: 100%;
+  height: 40%;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  background-color: #196f3a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

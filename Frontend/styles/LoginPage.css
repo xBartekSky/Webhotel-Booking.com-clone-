@@ -1,0 +1,89 @@
+* {
+  margin: 0 0;
+  padding: 0 0;
+  font-family: Helvetica, sans-serif;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.app {
+  padding: 10px 0 10px 0;
+  margin-top: 100px;
+  width: 100vw;
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+}
+.accessContainer {
+  width: 40vw;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+.accessPanel {
+  width: 50%;
+  height: 100%;
+}
+.loginForm {
+  padding: 20px 0 20px 0;
+}
+.loginPageTitle {
+  color: #196f3a;
+}
+.loginPageSubtitle {
+  color: gray;
+}
+.submitLoginButton {
+  background-color: #6ea74e;
+  outline: none;
+  border: none;
+  width: 100%;
+  margin-top: 20px;
+
+  color: White;
+  font-weight: bold;
+}
+.submitLoginButton:hover {
+  background-color: #196f3a;
+  transition: 0.4s;
+}
+.hrLine {
+  margin-top: 20px;
+}
+.accessPanelSocial {
+  width: 100%;
+}
+
+.socialTitle {
+  display: flex;
+
+  align-items: center;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+  margin: 20px 0;
+}
+.socialTitle::before,
+.socialTitle::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+.socialTitle::before {
+  margin-right: 10px;
+}
+.socialTitle::after {
+  margin-left: 10px;
+}
+.privacyPolicy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 12px;
+}

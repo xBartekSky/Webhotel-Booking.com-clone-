@@ -1,0 +1,38 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+}
+.app {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.panel {
+  width: 100%;
+  height: 600px;
+
+  display: flex;
+}
+.panel > div:first-child {
+  width: 70%;
+}
+.rateContainer {
+  width: 30%;
+  height: 100%;
+
+  display: flex;
+}
+.titleContainer {
+  width: 100%;
+}
+.title {
+  font-size: 36px;
+  color: #196f3a;
+}
+.info {
+  color: gray;
+}

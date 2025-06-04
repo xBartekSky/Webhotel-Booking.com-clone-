@@ -1,0 +1,65 @@
+.container {
+  width: 100vw;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.panel {
+  background-color: white;
+  width: 50vw;
+}
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border: 1px solid gray;
+  padding-top: 10px;
+  border-radius: 10px;
+  box-shadow: 13px -16px 42px -30px rgba(162, 162, 167, 1);
+  height: auto;
+}
+.inputs {
+  padding: 0 0 0 10px;
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+}
+.facilitiesContainer {
+  width: 50%;
+  padding-right: 10px;
+}
+.input {
+  width: 80%;
+}
+.descInput {
+  width: 50%;
+  height: 150px;
+}
+.fileInput {
+  border: none;
+}
+.fileInput:focus {
+  border: none;
+}
+
+.facilitiesInput {
+  width: 20px;
+  height: 20px;
+}
+.facilities {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+.title {
+  color: #196f3a;
+}
+.facilitiesTitle {
+  color: #196f3a;
+}

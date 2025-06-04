@@ -1,0 +1,61 @@
+package com.webhotel.webhotel.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.stereotype.Service;
+
+import com.webhotel.webhotel.dto.RoomDto;
+import com.webhotel.webhotel.entity.Hotel;
+import com.webhotel.webhotel.entity.Room;
+import com.webhotel.webhotel.entity.User;
+import com.webhotel.webhotel.mapper.RoomMapper;
+import com.webhotel.webhotel.repository.HotelRepository;
+import com.webhotel.webhotel.repository.RoomRepository;
+
+@Service
+public class RoomService {
+    @Autowired
+    private RoomRepository roomRepository;
+    @Autowired
+    private HotelRepository hotelRepository;
+    @Autowired
+    private RoomMapper roomMapper;
+
+    public Iterable<RoomDto> getAllRooms() {
+        List<RoomDto> roomdtos = new ArrayList<>();
+        for (Room room : roomRepository.findAll()) {
+            roomdtos.add(roomMapper.roomToRoomDto(room));
+        }
+        return roomdtos;
+    }
+
+    public Optional<RoomDto> getRoomById(Integer id) {
+        Optional<Room> room = roomRepository.findById(id);
+        return room.map(roomMapper::roomToRoomDto);
+    }
+
+    public RoomDto saveRoom(RoomDto roomDto, User user) {
+
+        Hotel hotel = hotelRepository.findById(roomDto.getHotelId())
+                .orElseThrow(() -> new RuntimeException("Hotel not found"));
+        if (hotel.getOwner() != user) {
+            throw new AccessDeniedException("User does not own this hotel.");
+        }
+
+        Room hotelRoom = roomMapper.roomDtoToRoom(roomDto);
+        hotelRoom = roomRepository.save(hotelRoom);
+        return roomMapper.roomToRoomDto(hotelRoom);
+    }
+
+    public void deleteRoom(Integer id) {
+        roomRepository.deleteById(id);
+    }
+
+    public List<Room> findAvailableRooms() {
+        return roomRepository.findByIsAvailable(true);
+    }
+}

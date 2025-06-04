@@ -1,0 +1,59 @@
+* {
+  margin: 0 0;
+  padding: 0 0;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(252, 252, 252);
+}
+.app {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+.panel {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.helloContainer {
+  width: 100%;
+  height: 200px;
+
+  display: flex;
+  align-items: center;
+}
+.dashboardContent {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
+}
+.contents {
+  width: 100%;
+  height: 40%;
+
+  display: flex;
+  justify-content: space-around;
+}
+.content {
+  padding: 10px 10px;
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+  box-shadow: 13px -16px 42px -30px rgba(162, 162, 167, 1);
+}
+.contentTitle {
+  font-size: 24px;
+}
+.contentButton {
+  margin-top: 10px;
+  width: 95%;
+  height: 30px;
+  background-color: gray;
+}

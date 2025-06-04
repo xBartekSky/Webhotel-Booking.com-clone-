@@ -1,0 +1,106 @@
+.container {
+  width: 100%;
+  height: 600px;
+
+  margin: 20px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.panel {
+  width: 95%;
+  height: 95%;
+
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  box-shadow: 13px -16px 42px -30px rgba(162, 162, 167, 1);
+
+  padding: 10px 10px;
+}
+.panelTitle {
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+}
+.hotelContainer {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 8px;
+  max-width: 100%;
+  height: 350px;
+  scroll-behavior: smooth;
+}
+.addHotelButton {
+  background-color: #196f3a;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border: none;
+}
+.addHotelButton:hover {
+  background-color: #6ea74e;
+  outline: none;
+  transition: 0.2s;
+}
+.addHotelButton:focus {
+  outline: none;
+}
+.hotelContent {
+  min-width: 200px;
+  max-width: 250px;
+  height: 100%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+}
+.imageContainer {
+  width: 100%;
+  min-height: 150px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageSize {
+  width: 100%;
+  height: 100%;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.hotelDetails {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.editButton {
+  width: 50%;
+  background-color: #6ea74e;
+  color: white;
+  font-weight: bold;
+}
+.deleteButton {
+  width: 50%;
+  background-color: rgb(255, 85, 85);
+  color: white;
+  font-weight: bold;
+}
+.hotelTitle {
+  color: black;
+  font-weight: bold;
+}
+.hotelSubTitle {
+  color: gray;
+  text-align: center;
+}
