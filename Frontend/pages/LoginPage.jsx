@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { GitHubLoginForm } from "../features/GitHubLoginForm";
-import { LoginForm } from "../features/LoginForm";
+import { GitHubLoginForm } from "../features/forms/GitHubLoginForm";
+import { LoginForm } from "../features/forms/LoginForm";
 
 import "/styles/LoginPage.css";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ export const LoginPage = () => {
     if (token) {
       console.log(token);
       localStorage.setItem("token", token);
-      nav("/myaccount");
+      nav("/dashboard");
     }
   }, [nav]);
 
@@ -39,6 +39,9 @@ export const LoginPage = () => {
                 <label className="socialTitle">lub zaloguj się używając</label>
               </div>
               <GitHubLoginForm></GitHubLoginForm>
+              <a href="/register" className="registerAd">
+                Nie masz jeszcze konta? Zarejestruj się
+              </a>
               <span className="privacyPolicy">
                 Zalogowanie się na swoje konto lub utworzenie go jest
                 równoznaczne z akceptacją Warunków oraz Oświadczenia o ochronie

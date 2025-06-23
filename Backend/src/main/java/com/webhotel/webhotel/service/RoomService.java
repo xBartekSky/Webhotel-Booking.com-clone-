@@ -16,6 +16,8 @@ import com.webhotel.webhotel.mapper.RoomMapper;
 import com.webhotel.webhotel.repository.HotelRepository;
 import com.webhotel.webhotel.repository.RoomRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class RoomService {
     @Autowired
@@ -55,7 +57,45 @@ public class RoomService {
         roomRepository.deleteById(id);
     }
 
-    public List<Room> findAvailableRooms() {
-        return roomRepository.findByIsAvailable(true);
+    // public List<Room> findAvailableRooms() {
+    // return roomRepository.findByIsAvailable(true);
+    // }
+
+    public List<RoomDto> getRoomsByHotelId(Long hotelId) {
+        List<Room> rooms = roomRepository.findByHotelId(hotelId);
+        List<RoomDto> roomDtos = new ArrayList<>();
+
+        for (Room room : rooms) {
+            RoomDto dto = roomMapper.roomToRoomDto(room);
+            roomDtos.add(dto);
+        }
+
+        return roomDtos;
     }
+
+    public Long getHotelOwnerIdByRoomId(int roomId) {
+        return roomRepository.findById(roomId)
+                .map(room -> room.getHotel().getOwner().getId())
+                .orElseThrow(() -> new RuntimeException("Room not found"));
+    }
+
+    @Transactional
+    public RoomDto updateRoom(int id, RoomDto roomDto) {
+        Room existingRoom = roomRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Room not found"));
+
+        if (roomDto.getRoomNumber() != null) {
+            existingRoom.setRoomNumber(roomDto.getRoomNumber());
+        }
+        if (roomDto.getRoomType() != null) {
+            existingRoom.setRoomType(roomDto.getRoomType());
+        }
+        if (roomDto.getPricePerNight() != null) {
+            existingRoom.setPricePerNight(roomDto.getPricePerNight().doubleValue());
+        }
+
+        Room savedRoom = roomRepository.save(existingRoom);
+        return roomMapper.roomToRoomDto(savedRoom);
+    }
+
 }

@@ -1,59 +1,124 @@
 * {
-  margin: 0 0;
-  padding: 0 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 .container {
   width: 100vw;
-  height: 100vh;
-  background-color: rgb(252, 252, 252);
+
+  background-color: #f8f9fa; /* jaśniejsze tło dla kontrastu */
 }
+
 .app {
+  flex-grow: 1;
   width: 100%;
   height: 100%;
-
   display: flex;
   justify-content: center;
+  padding: 20px; /* padding by nic nie kleiło się do krawędzi */
 }
+
 .panel {
   width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
+
 .helloContainer {
   width: 100%;
   height: 200px;
-
   display: flex;
   align-items: center;
+  padding: 20px 0;
 }
+
 .dashboardContent {
   width: 100%;
   height: 100%;
   margin-bottom: 100px;
 }
+
 .contents {
   width: 100%;
-  height: 40%;
-
+  height: auto;
   display: flex;
   justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
 }
+
 .content {
-  padding: 10px 10px;
+  padding: 10px;
   width: 30%;
-  height: 100%;
   background-color: white;
   border-radius: 20px;
   border: 1px solid lightgray;
   box-shadow: 13px -16px 42px -30px rgba(162, 162, 167, 1);
 }
+
 .contentTitle {
   font-size: 24px;
 }
+
 .contentButton {
   margin-top: 10px;
   width: 95%;
   height: 30px;
   background-color: gray;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.contentButton:hover {
+  background-color: #333;
+}
+
+@media (max-width: 1024px) {
+  .panel {
+    width: 80%;
+  }
+
+  .content {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .panel {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .helloContainer {
+    height: auto;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .contents {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .content {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .contentTitle {
+    font-size: 20px;
+  }
+
+  .contentButton {
+    font-size: 14px;
+    height: 36px;
+  }
 }

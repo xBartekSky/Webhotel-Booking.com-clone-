@@ -1,18 +1,26 @@
 import { Routes, Route } from "react-router-dom";
-import { LoginForm } from "../features/LoginForm";
-import { RegisterForm } from "../features/RegisterForm";
+import { LoginForm } from "../features/forms/LoginForm";
+import { RegisterForm } from "../features/forms/RegisterForm";
 import { LoginPage } from "../pages/LoginPage";
 import { DashboardPage } from "../pages/DashboardPage";
 import { MainPage } from "../pages/MainPage";
 import { RegisterPage } from "../pages/RegisterPage";
 import { useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
-import { AddHotelForm } from "../features/AddHotelForm";
+import { AddHotelForm } from "../features/forms/AddHotelForm";
 import { ConfirmChoose } from "../components/ConfirmChoose";
 import { HotelDetails } from "../pages/HotelDetails";
 import { Footer } from "../components/Footer";
-import { HotelDescription } from "../components/HotelDescription";
+
 import { Review } from "../features/Review";
+import { ManageHotel } from "../pages/ManageHotel";
+
+import { PrivateRoute } from "../components/PrivateRoute";
+import { HotelRooms } from "../features/forms/HotelRooms";
+import { RoomCard } from "../components/RoomCard";
+import { CheckoutForm } from "../features/forms/CheckoutForm";
+import { SuccessPage } from "../pages/SuccessPage";
+import GetReservationPage from "../pages/GetReservationPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -44,11 +52,21 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/myaccount" element={<DashboardPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/manageHotel/:id" element={<ManageHotel />} />
+          <Route path="/checkout" element={<CheckoutForm />} />
+          <Route path="/successPage" element={<SuccessPage />} />
+          <Route
+            path="/getReservation/:id"
+            element={<GetReservationPage></GetReservationPage>}
+          />
+        </Route>
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/hotelDetails/:id" element={<HotelDetails />} />
-        <Route path="/test" element={<HotelDescription />} />
-        <Route path="/test2" element={<Review />} />
+
+        <Route path="/test" element={<ManageHotel />} />
+        <Route path="/test2" element={<HotelRooms />} />
       </Routes>
     </UserContext.Provider>
   );

@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import styles from "/styles/Footer.module.css";
 
 export const Footer = ({ adLabel }) => {
+  const nav = useNavigate();
   return (
     <div className={styles.container}>
       <div className={styles.ad}>
@@ -9,8 +11,20 @@ export const Footer = ({ adLabel }) => {
             <label className={styles.adLabel}>{adLabel}</label>
           </div>
           <div className={styles.buttons}>
-            <button>Zaloguj</button>
-            <button>Utwórz nowe konto</button>
+            <button
+              onClick={() => {
+                nav("/login");
+              }}
+            >
+              Zaloguj
+            </button>
+            <button
+              onClick={() => {
+                nav("/register");
+              }}
+            >
+              Utwórz nowe konto
+            </button>
           </div>
         </div>
       </div>

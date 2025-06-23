@@ -1,5 +1,5 @@
 import { GuestHeader } from "../components/GuestHeader";
-import { RegisterForm } from "../features/RegisterForm";
+import { RegisterForm } from "../features/forms/RegisterForm";
 import styles from "/styles/RegisterPage.module.css";
 
 export const RegisterPage = () => {

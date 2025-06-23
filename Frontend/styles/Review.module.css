@@ -1,12 +1,12 @@
 .container {
   width: 100vw;
-  height: 100vh;
+
   display: flex;
   justify-content: right;
   align-items: flex-start;
 }
 .reviewContainer {
-  width: 80%;
+  width: 300px;
   height: auto;
   border: 1px solid #196f3a;
   border-radius: 10px;

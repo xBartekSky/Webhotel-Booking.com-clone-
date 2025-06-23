@@ -1,18 +1,27 @@
-import { useState } from "react";
-import { InputField } from "./InputField";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import styles from "/styles/SearchBar.module.css";
 
-export const SearchBar = ({ setSearchParams }) => {
-  const [city, setCity] = useState("");
-  const [date, setDate] = useState("");
-  const [guests, setGuests] = useState(1);
+export const SearchBar = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [city, setCity] = useState(searchParams.get("city") || "");
+  const [checkIn, setCheckIn] = useState(searchParams.get("checkIn") || "");
+  const [checkOut, setCheckOut] = useState(searchParams.get("checkOut") || "");
+  const [guests, setGuests] = useState(searchParams.get("guests") || 1);
+
+  useEffect(() => {
+    setCity(searchParams.get("city") || "");
+    setCheckIn(searchParams.get("checkIn") || "");
+    setCheckOut(searchParams.get("checkOut") || "");
+    setGuests(searchParams.get("guests") || 1);
+  }, [searchParams]);
 
   const handleSearch = () => {
-    console.log("Wyszukiwanie dla miasta:", city);
-
     setSearchParams({
       city,
-      date,
+      checkIn,
+      checkOut,
       guests,
     });
   };
@@ -26,20 +35,31 @@ export const SearchBar = ({ setSearchParams }) => {
               className={styles.input}
               placeholder="Miejsce podróży"
               type="text"
+              value={city}
               onChange={(e) => setCity(e.target.value)}
-            ></input>
+            />
             <input
               className={styles.input}
-              placeholder="Data"
+              placeholder="Data przyjazdu"
               type="date"
-              onChange={(e) => setDate(e.target.value)}
-            ></input>
+              value={checkIn}
+              onChange={(e) => setCheckIn(e.target.value)}
+            />
             <input
               className={styles.input}
-              placeholder="Ilośc osób"
+              placeholder="Data wyjazdu"
+              type="date"
+              value={checkOut}
+              onChange={(e) => setCheckOut(e.target.value)}
+            />
+            <input
+              className={styles.input}
+              placeholder="Ilość osób"
               type="number"
+              min={1}
+              value={guests}
               onChange={(e) => setGuests(e.target.value)}
-            ></input>
+            />
             <button className={styles.searchButton} onClick={handleSearch}>
               Szukaj
             </button>

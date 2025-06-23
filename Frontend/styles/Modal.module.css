@@ -22,6 +22,7 @@
   max-height: 90vh;
   overflow-y: auto;
   box-sizing: border-box;
+  animation: fadeIn 0.3s ease-out;
 }
 
 .modalClose {
@@ -34,11 +35,6 @@
   cursor: pointer;
 }
 
-.modalContent {
-  animation: fadeIn 0.3s ease-in-out;
-  animation: fadeIn 0.3s ease-out;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -47,5 +43,25 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    width: 90vw;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent {
+    width: 95vw;
+    padding: 10px;
+  }
+
+  .modalClose {
+    font-size: 18px;
+    top: 8px;
+    right: 8px;
   }
 }

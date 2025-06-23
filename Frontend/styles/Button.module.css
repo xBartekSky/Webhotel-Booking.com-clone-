@@ -1,0 +1,19 @@
+.button {
+  align-self: flex-start;
+  background-color: #196f3a;
+  color: white;
+  font-weight: 400;
+  border: none;
+  outline: none;
+
+  border-radius: 50px;
+  width: auto;
+}
+
+.button:focus {
+  outline: none;
+  border: none;
+}
+.button:hover {
+  background-color: #6ea74e;
+}

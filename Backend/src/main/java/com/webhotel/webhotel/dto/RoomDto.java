@@ -7,7 +7,7 @@ public class RoomDto {
     private String roomNumber;
     private String roomType;
     private BigDecimal pricePerNight;
-    private boolean isAvailable;
+    //private boolean isAvailable;
     private Long hotelId;
 
     public Long getId() {
@@ -42,13 +42,7 @@ public class RoomDto {
         this.pricePerNight = pricePerNight;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
-    }
+   
 
     public String getDescription() {
         return description;

@@ -1,4 +1,5 @@
 .container {
+  position: sticky;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -6,7 +7,7 @@
 }
 
 .ad {
-  width: 100vw;
+  width: 100%;
   background-color: #196f3a;
   display: flex;
   justify-content: center;
@@ -33,11 +34,11 @@
 }
 
 .buttons {
-  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .panel {
@@ -102,4 +103,102 @@
 
 .socialIcons i:hover {
   color: #196f3a;
+}
+@media (max-width: 1024px) {
+  .adContent {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .labelContainer {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buttons {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .social {
+    width: 90%;
+    padding-left: 0;
+  }
+
+  .helpContainer {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .help {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .help a {
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .pageTitle h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .adLabel {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .adContent {
+    width: 100%;
+  }
+
+  .adLabel {
+    font-size: 20px;
+  }
+
+  .buttons button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .socialIcons {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .adContent {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .labelContainer,
+  .buttons {
+    width: 100%;
+    justify-content: center;
+  }
 }

@@ -1,0 +1,62 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.section {
+  max-width: 300px;
+  min-width: 300px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section h3 {
+  font-size: 22px;
+  color: #000;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  border-top: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.item:first-child {
+  border-top: none;
+}
+
+.item p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.item p strong {
+  color: #444;
+}
+
+.item .price {
+  color: #196f3a;
+  font-weight: bold;
+  font-size: 18px;
+}

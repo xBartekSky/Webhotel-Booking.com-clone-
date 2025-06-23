@@ -7,6 +7,10 @@ export const InputField = ({
   placeholder = label,
   iconName,
   inputClassName,
+  error,
+  multiline = false,
+  maxLength = 256,
+  value,
 }) => {
   return (
     <div className="inputField">
@@ -14,12 +18,27 @@ export const InputField = ({
         <i className={iconName} style={{ color: "gray" }}></i> {label}
       </label>
 
-      <input
-        type={type}
-        className={`input ${inputClassName}`}
-        placeholder={placeholder}
-        onChange={onChange}
-      />
+      {multiline ? (
+        <textarea
+          className={`input ${inputClassName}`}
+          placeholder={placeholder}
+          onChange={onChange}
+          maxLength={maxLength}
+          value={value}
+          rows={4}
+        />
+      ) : (
+        <input
+          type={type}
+          className={`input ${inputClassName}`}
+          placeholder={placeholder}
+          onChange={onChange}
+          maxLength={maxLength}
+          value={value}
+        />
+      )}
+
+      {error && <div className="errorText">{error}</div>}
     </div>
   );
 };

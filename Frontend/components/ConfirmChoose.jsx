@@ -1,3 +1,4 @@
+import { Button } from "./Button";
 import styles from "/styles/ConfirmChoose.module.css";
 
 export const ConfirmChoose = ({ label, onClick, onCancel }) => {
@@ -10,12 +11,8 @@ export const ConfirmChoose = ({ label, onClick, onCancel }) => {
         </div>
 
         <div className={styles.buttons}>
-          <button className={styles.apply} onClick={onClick}>
-            Potwierdź
-          </button>
-          <button className={styles.cancel} onClick={onCancel}>
-            Anuluj
-          </button>
+          <Button label="Potwierdź" onClick={onClick}></Button>
+          <Button label="Anuluj" color="#FF5555" onClick={onCancel}></Button>
         </div>
       </div>
     </div>

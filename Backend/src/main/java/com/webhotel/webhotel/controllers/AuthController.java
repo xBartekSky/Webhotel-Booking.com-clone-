@@ -75,8 +75,8 @@ public class AuthController {
 
         String token = authProvider.createToken(userDto.getUsername());
 
-        // Przekieruj do frontendu z tokenem w query param
-        String frontendUrl = "http://localhost:5173/api/login?token=" + token;
+       
+        String frontendUrl = "http://localhost:5173/login?token=" + token;
         return ResponseEntity.status(HttpStatus.FOUND)
                 .header("Location", frontendUrl)
                 .build();

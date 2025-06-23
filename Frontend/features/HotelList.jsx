@@ -25,7 +25,7 @@ export const HotelList = ({ searchParams }) => {
         if (response.ok) {
           const data = await response.json();
           setAllHotels(data);
-          setPage(0); // reset strony przy nowych danych
+          setPage(0);
         } else {
           console.error("Błąd podczas pobierania hoteli");
         }
@@ -48,7 +48,8 @@ export const HotelList = ({ searchParams }) => {
   };
 
   const handleCheckHotel = (hotel) => {
-    nav(`/hotelDetails/${hotel?.id}`);
+    const query = new URLSearchParams(searchParams).toString();
+    nav(`/hotelDetails/${hotel?.id}?${query}`);
   };
 
   return (
@@ -66,7 +67,9 @@ export const HotelList = ({ searchParams }) => {
                       <img
                         className={styles.image}
                         src={
-                          hotel.mainImageUrl ?? "src/assets/nowe_zdjecie.webp"
+                          hotel.mainImageUrl
+                            ? `http://localhost:8080${hotel.mainImageUrl}`
+                            : "src/assets/nowe_zdjecie.webp"
                         }
                         alt=""
                       />
@@ -75,7 +78,12 @@ export const HotelList = ({ searchParams }) => {
                   <div className={styles.hotelDesc}>
                     <h3>{hotel.name}</h3>
                     <p>{hotel.city}</p>
-                    <p>{hotel.description}</p>
+                    <p>
+                      {hotel.description
+                        ? hotel.description.split(",")[0] + "."
+                        : "Brak opisu."}
+                    </p>
+
                     <div className={styles.separator}></div>
                     <button
                       className={styles.button}

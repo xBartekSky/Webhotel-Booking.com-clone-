@@ -32,21 +32,7 @@
   height: 350px;
   scroll-behavior: smooth;
 }
-.addHotelButton {
-  background-color: #196f3a;
-  color: white;
-  font-weight: bold;
-  outline: none;
-  border: none;
-}
-.addHotelButton:hover {
-  background-color: #6ea74e;
-  outline: none;
-  transition: 0.2s;
-}
-.addHotelButton:focus {
-  outline: none;
-}
+
 .hotelContent {
   min-width: 200px;
   max-width: 250px;
@@ -56,7 +42,10 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between; 
+  overflow: hidden; 
 }
+
 .imageContainer {
   width: 100%;
   min-height: 150px;
@@ -84,18 +73,6 @@
   gap: 10px;
 }
 
-.editButton {
-  width: 50%;
-  background-color: #6ea74e;
-  color: white;
-  font-weight: bold;
-}
-.deleteButton {
-  width: 50%;
-  background-color: rgb(255, 85, 85);
-  color: white;
-  font-weight: bold;
-}
 .hotelTitle {
   color: black;
   font-weight: bold;
@@ -103,4 +80,10 @@
 .hotelSubTitle {
   color: gray;
   text-align: center;
+  max-height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
 }

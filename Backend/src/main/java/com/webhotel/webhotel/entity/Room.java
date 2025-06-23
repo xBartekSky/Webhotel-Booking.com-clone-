@@ -1,13 +1,16 @@
 package com.webhotel.webhotel.entity;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,12 +21,15 @@ public class Room {
     private Long id;
     private String roomNumber;
     private String roomType;
-    private BigDecimal pricePerNight;
-    private boolean isAvailable;
+    private Double pricePerNight;
+    // private boolean isAvailable;
     private String description;
     @ManyToOne
     @JoinColumn(name = "hotel_id", nullable = false)
     private Hotel hotel;
+
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Booking> bookings = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -49,21 +55,21 @@ public class Room {
         this.roomType = roomType;
     }
 
-    public BigDecimal getPricePerNight() {
+    public Double getPricePerNight() {
         return pricePerNight;
     }
 
-    public void setPricePerNight(BigDecimal pricePerNight) {
+    public void setPricePerNight(Double pricePerNight) {
         this.pricePerNight = pricePerNight;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
-    }
+    // public boolean isAvailable() {
+    // return isAvailable;
+    // }
 
-    public void setAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
-    }
+    // public void setAvailable(boolean isAvailable) {
+    // this.isAvailable = isAvailable;
+    // }
 
     public String getDescription() {
         return description;
